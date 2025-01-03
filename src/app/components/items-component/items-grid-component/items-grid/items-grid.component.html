@@ -36,8 +36,16 @@
 
     <div class="card-body">
 
-      <div class="row gx-3 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 row-cols-xxl-5">
-       <app-items-card></app-items-card>
+      <div class="row gx-3 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 row-cols-xxl-5" *ngIf="items$">
+       <app-items-card #gridView *ngFor="let item of items$"
+       [item-card]="item"
+       (elimina-card)="handleDelete($event)"
+       (modifica-card)="handleEdit($event)"
+       (acquista-pezzi)="handleBuy($event)"
+       >
+       <span class="badge rounded-pill text-bg-danger stato promo" *ngIf="item.active">Promo</span>
+       <span class="badge rounded-pill text-bg-danger stato promo" *ngIf="!item.active">Normale</span>
+      </app-items-card>
       </div>
     </div>
   </div>

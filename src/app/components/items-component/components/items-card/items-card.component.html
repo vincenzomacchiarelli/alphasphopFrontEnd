@@ -1,17 +1,25 @@
 <div class="col">
   <div class="card card-product-grid">
-    <a href="#" class="img-wrap"> <img src="assets/images/prodotti/1.jpg"
+    <a href="#" class="img-wrap"> <img src="{{item.imageUrl}}"
        class="img-rounded"  width="180" height="225" alt="Product"> </a>
     <div class="info-wrap">
-      <a href="#" class="title text-truncate">Barilla - Penne Rigate Kg 0.5</a>
-      <div class="price mb-2">€ 0.89</div> <!-- price.// -->
+      <a href="#" class="title text-truncate">{{item.descrizione}}</a>
+      <div class="price mb-2">{{item.prezzo}} $
+       X <input type="text" class="qta mb-2" id="qta" [(ngModel)]="qtaArt" />
+       <ng-content select=".promo"></ng-content>
+       <p appColorChange [backgroundColor]="'yellow'" [textColor]="'blue'">Promo valida sino al 12/12/2024</p>
+      </div> <!-- price.// -->
 
-      <a href="#" data-bs-toggle="dropdown" class="btn btn-sm btn-light">
+      <button href="#"  class="btn btn-sm btn-light" (click)="getValue()">
+        <i class="material-icons md-edit"></i>Acquista
+    </button>
+
+      <button href="#"  class="btn btn-sm btn-light" (click)="editArt()">
           <i class="material-icons md-edit"></i>Modifica
-      </a>
-      <a href="#" data-bs-toggle="dropdown" class="btn btn-sm btn-outline-danger">
+      </button>
+      <button href="#"  (click)="deleteArt()" class="btn btn-sm btn-outline-danger">
           <i class="material-icons md-delete_forever"></i>Elimina
-      </a>
+      </button>
     </div>
   </div>
 </div>

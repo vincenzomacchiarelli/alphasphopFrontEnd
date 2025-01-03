@@ -1,8 +1,9 @@
 import {  NgModule } from "@angular/core";
-import { ItemsGridComponent } from "./items-grid-component/items-grid/items-grid.component";
 import { CommonModule } from "@angular/common";
 import { CoreModule } from "../../modules/core/core.module";
 import { ItemsCardComponent } from "./components/items-card/items-card.component";
+import { FormsModule } from "@angular/forms";
+import { ColorChangeDirective } from "../../custom-directives/color-change.directive";
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { ItemsCardComponent } from "./components/items-card/items-card.component
   imports: [
     CommonModule,
     CoreModule,
+    FormsModule,
   ],
   exports: [
     ItemsCardComponent,
